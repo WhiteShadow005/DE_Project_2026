@@ -1,0 +1,12 @@
+{
+  "team_number": "T0010",
+  "group_lead": { "name": "Ashwin Maurya", "enrollment_no": "2501010099", "github": "WhiteShadow005" },
+  "members": [
+    { "name": "Arnav Gupta", "enrollment_no": "", "github": "" },
+    { "name": "Shaurya Pratap Singh", "enrollment_no": "", "github": "" },
+    { "name": "Ashwin Maurya", "enrollment_no": "2501010099", "github": "WhiteShadow005" },
+    { "name": "Yashvardhan Mundhra", "enrollment_no": "", "github": "" }
+  ],
+  "postgres_version": "16",
+  "laptop_used_for_benchmarks": "MacBook Pro M4"
+}

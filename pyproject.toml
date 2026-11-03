@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "de-project-2026"
+version = "0.1.0"
+description = "Modern Data Engineering Project 2026"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Arnav Gupta", email = "arnavgt05@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --durations=3"
+testpaths = [
+    "tests",
+]
+pythonpath = ["."]
