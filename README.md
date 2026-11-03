@@ -22,7 +22,7 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | Ashwin Maurya | 2501010099 | WhiteShadow005 |
+| Group Lead & Member 1 | Ashwin Maurya | 2501010099 | WhiteShadow005 |
 | Member 2 | Arnav Gupta | | |
 | Member 3 | Shaurya Pratap Singh | | |
 | Member 4 | Yashvardhan Mundhra | | |
