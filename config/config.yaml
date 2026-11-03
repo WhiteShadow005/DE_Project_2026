@@ -1,0 +1,14 @@
+app:
+  name: "DE_Project_2026"
+  version: "0.1.0"
+  environment: "development"
+
+pipeline:
+  batch_size: 1000
+  retry_attempts: 3
+  timeout_seconds: 30
+
+paths:
+  raw: "data/raw"
+  staging: "data/staging"
+  warehouse: "data/warehouse"
