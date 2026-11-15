@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .table-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+      .header-bg { fill: #0f4c97; }
+      .header-title { fill: #ffffff; font-weight: 700; font-size: 15px; }
+      .col-pk { fill: #b42318; font-weight: 700; font-size: 12px; font-family: monospace; }
+      .col-fk { fill: #0f4c97; font-weight: 700; font-size: 12px; font-family: monospace; }
+      .col-regular { fill: #1e293b; font-size: 12px; font-family: monospace; }
+      .col-type { fill: #64748b; font-size: 11px; font-family: monospace; }
+      .rel-line { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4,4; fill: none; }
+      .rel-label { font-size: 11px; fill: #475569; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Title Banner -->
+  <text x="50" y="45" font-size="24" font-weight="800" fill="#0f4c97">Google Maps Navigation Database — Relational ER Diagram</text>
+  <text x="50" y="70" font-size="14" fill="#64748b">NST Rishihood DBMS Project (Team T0010 · ReguFlow) · Schema: gmaps · 11 Tables</text>
+
+  <!-- Entity 1: CITIES (x: 50, y: 100, w: 260, h: 140) -->
+  <g transform="translate(50, 100)" filter="url(#shadow)">
+    <rect width="260" height="140" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 252 0 Q 260 0 260 8 L 260 32 L 0 32 Z" class="header-bg"/>
+    <text x="12" y="22" class="header-title">cities</text>
+    <text x="12" y="55" class="col-pk">PK  city_id</text><text x="190" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-regular">    city_name</text><text x="190" y="75" class="col-type">VARCHAR(100)</text>
+    <text x="12" y="95" class="col-regular">    center_lat</text><text x="190" y="95" class="col-type">DECIMAL(9,6)</text>
+    <text x="12" y="115" class="col-regular">    center_lng</text><text x="190" y="115" class="col-type">DECIMAL(9,6)</text>
+  </g>
+
+  <!-- Entity 2: PLACE_CATEGORIES (x: 50, y: 280, w: 260, h: 100) -->
+  <g transform="translate(50, 280)" filter="url(#shadow)">
+    <rect width="260" height="100" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 252 0 Q 260 0 260 8 L 260 32 L 0 32 Z" class="header-bg"/>
+    <text x="12" y="22" class="header-title">place_categories</text>
+    <text x="12" y="55" class="col-pk">PK  category_id</text><text x="190" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-regular">    category_name</text><text x="190" y="75" class="col-type">VARCHAR(100)</text>
+  </g>
+
+  <!-- Entity 3: USERS (x: 50, y: 430, w: 260, h: 190) -->
+  <g transform="translate(50, 430)" filter="url(#shadow)">
+    <rect width="260" height="190" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 252 0 Q 260 0 260 8 L 260 32 L 0 32 Z" class="header-bg"/>
+    <text x="12" y="22" class="header-title">users</text>
+    <text x="12" y="55" class="col-pk">PK  user_id</text><text x="190" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-regular">    display_name</text><text x="190" y="75" class="col-type">VARCHAR(150)</text>
+    <text x="12" y="95" class="col-regular">UQ  email</text><text x="190" y="95" class="col-type">VARCHAR(255)</text>
+    <text x="12" y="115" class="col-fk">FK  home_city_id</text><text x="190" y="115" class="col-type">INTEGER</text>
+    <text x="12" y="135" class="col-regular">    is_local_guide</text><text x="190" y="135" class="col-type">BOOLEAN</text>
+    <text x="12" y="155" class="col-regular">    guide_level</text><text x="190" y="155" class="col-type">INTEGER</text>
+    <text x="12" y="175" class="col-regular">    created_at</text><text x="190" y="175" class="col-type">TIMESTAMPTZ</text>
+  </g>
+
+  <!-- Entity 4: PLACES (x: 420, y: 100, w: 290, h: 330) -->
+  <g transform="translate(420, 100)" filter="url(#shadow)">
+    <rect width="290" height="330" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 282 0 Q 290 0 290 8 L 290 32 L 0 32 Z" class="header-bg" style="fill: #0369a1;"/>
+    <text x="12" y="22" class="header-title">places (Core POI)</text>
+    <text x="12" y="55" class="col-pk">PK  place_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-regular">UQ  plus_code</text><text x="210" y="75" class="col-type">VARCHAR(30)</text>
+    <text x="12" y="95" class="col-regular">    name</text><text x="210" y="95" class="col-type">VARCHAR(255)</text>
+    <text x="12" y="115" class="col-fk">FK  category_id</text><text x="210" y="115" class="col-type">INTEGER</text>
+    <text x="12" y="135" class="col-fk">FK  city_id</text><text x="210" y="135" class="col-type">INTEGER</text>
+    <text x="12" y="155" class="col-regular">    latitude</text><text x="210" y="155" class="col-type">DECIMAL(9,6)</text>
+    <text x="12" y="175" class="col-regular">    longitude</text><text x="210" y="175" class="col-type">DECIMAL(9,6)</text>
+    <text x="12" y="195" class="col-regular">    address</text><text x="210" y="195" class="col-type">TEXT</text>
+    <text x="12" y="215" class="col-regular">    phone</text><text x="210" y="215" class="col-type">VARCHAR(30)</text>
+    <text x="12" y="235" class="col-regular">    website</text><text x="210" y="235" class="col-type">VARCHAR(255)</text>
+    <text x="12" y="255" class="col-regular">    price_level</text><text x="210" y="255" class="col-type">INTEGER</text>
+    <text x="12" y="275" class="col-regular">    avg_rating</text><text x="210" y="275" class="col-type">DECIMAL(3,2)</text>
+    <text x="12" y="295" class="col-regular">    review_count</text><text x="210" y="295" class="col-type">INTEGER</text>
+    <text x="12" y="315" class="col-regular">    is_closed</text><text x="210" y="315" class="col-type">BOOLEAN</text>
+  </g>
+
+  <!-- Entity 5: OPENING_HOURS (x: 420, y: 470, w: 290, h: 130) -->
+  <g transform="translate(420, 470)" filter="url(#shadow)">
+    <rect width="290" height="130" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 282 0 Q 290 0 290 8 L 290 32 L 0 32 Z" class="header-bg"/>
+    <text x="12" y="22" class="header-title">opening_hours</text>
+    <text x="12" y="55" class="col-pk">PK,FK place_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-pk">PK    weekday</text><text x="210" y="75" class="col-type">INTEGER (1-7)</text>
+    <text x="12" y="95" class="col-regular">      opens</text><text x="210" y="95" class="col-type">TIME</text>
+    <text x="12" y="115" class="col-regular">      closes</text><text x="210" y="115" class="col-type">TIME</text>
+  </g>
+
+  <!-- Entity 6: PLACE_REVIEWS (x: 420, y: 640, w: 290, h: 180) -->
+  <g transform="translate(420, 640)" filter="url(#shadow)">
+    <rect width="290" height="180" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 282 0 Q 290 0 290 8 L 290 32 L 0 32 Z" class="header-bg"/>
+    <text x="12" y="22" class="header-title">place_reviews</text>
+    <text x="12" y="55" class="col-pk">PK    review_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-fk">FK,UQ place_id</text><text x="210" y="75" class="col-type">INTEGER</text>
+    <text x="12" y="95" class="col-fk">FK,UQ user_id</text><text x="210" y="95" class="col-type">INTEGER</text>
+    <text x="12" y="115" class="col-regular">      rating</text><text x="210" y="115" class="col-type">INTEGER (1-5)</text>
+    <text x="12" y="135" class="col-regular">      review_text</text><text x="210" y="135" class="col-type">TEXT</text>
+    <text x="12" y="155" class="col-regular">      photo_count</text><text x="210" y="155" class="col-type">INTEGER</text>
+    <text x="12" y="175" class="col-regular">      created_at</text><text x="210" y="175" class="col-type">TIMESTAMPTZ</text>
+  </g>
+
+  <!-- Entity 7: SAVED_PLACES (x: 420, y: 860, w: 290, h: 130) -->
+  <g transform="translate(420, 860)" filter="url(#shadow)">
+    <rect width="290" height="130" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 282 0 Q 290 0 290 8 L 290 32 L 0 32 Z" class="header-bg"/>
+    <text x="12" y="22" class="header-title">saved_places</text>
+    <text x="12" y="55" class="col-pk">PK,FK user_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-pk">PK,FK place_id</text><text x="210" y="75" class="col-type">INTEGER</text>
+    <text x="12" y="95" class="col-pk">PK    list_name</text><text x="210" y="95" class="col-type">VARCHAR(100)</text>
+    <text x="12" y="115" class="col-regular">      saved_at</text><text x="210" y="115" class="col-type">TIMESTAMPTZ</text>
+  </g>
+
+  <!-- Entity 8: ROAD_SEGMENTS (x: 820, y: 100, w: 300, h: 250) -->
+  <g transform="translate(820, 100)" filter="url(#shadow)">
+    <rect width="300" height="250" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 292 0 Q 300 0 300 8 L 300 32 L 0 32 Z" class="header-bg" style="fill: #047857;"/>
+    <text x="12" y="22" class="header-title">road_segments (Network)</text>
+    <text x="12" y="55" class="col-pk">PK  segment_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-regular">    road_name</text><text x="210" y="75" class="col-type">VARCHAR(200)</text>
+    <text x="12" y="95" class="col-fk">FK  city_id</text><text x="210" y="95" class="col-type">INTEGER</text>
+    <text x="12" y="115" class="col-regular">    road_type</text><text x="210" y="115" class="col-type">VARCHAR(50)</text>
+    <text x="12" y="135" class="col-regular">    start_lat/lng</text><text x="210" y="135" class="col-type">DECIMAL(9,6)</text>
+    <text x="12" y="155" class="col-regular">    end_lat/lng</text><text x="210" y="155" class="col-type">DECIMAL(9,6)</text>
+    <text x="12" y="175" class="col-regular">    length_m</text><text x="210" y="175" class="col-type">INTEGER</text>
+    <text x="12" y="195" class="col-regular">    speed_limit_kmph</text><text x="210" y="195" class="col-type">INTEGER</text>
+  </g>
+
+  <!-- Entity 9: TRAFFIC_READINGS (x: 820, y: 390, w: 300, h: 150) -->
+  <g transform="translate(820, 390)" filter="url(#shadow)">
+    <rect width="300" height="150" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 292 0 Q 300 0 300 8 L 300 32 L 0 32 Z" class="header-bg" style="fill: #047857;"/>
+    <text x="12" y="22" class="header-title">traffic_readings (Telemetry)</text>
+    <text x="12" y="55" class="col-pk">PK  reading_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-fk">FK  segment_id</text><text x="210" y="75" class="col-type">INTEGER</text>
+    <text x="12" y="95" class="col-regular">    recorded_at</text><text x="210" y="95" class="col-type">TIMESTAMPTZ</text>
+    <text x="12" y="115" class="col-regular">    avg_speed_kmph</text><text x="210" y="115" class="col-type">DECIMAL(6,2)</text>
+    <text x="12" y="135" class="col-regular">    congestion_level</text><text x="210" y="135" class="col-type">VARCHAR(30)</text>
+  </g>
+
+  <!-- Entity 10: INCIDENT_REPORTS (x: 820, y: 580, w: 300, h: 180) -->
+  <g transform="translate(820, 580)" filter="url(#shadow)">
+    <rect width="300" height="180" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 292 0 Q 300 0 300 8 L 300 32 L 0 32 Z" class="header-bg" style="fill: #b42318;"/>
+    <text x="12" y="22" class="header-title">incident_reports</text>
+    <text x="12" y="55" class="col-pk">PK  report_id</text><text x="210" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-fk">FK  segment_id</text><text x="210" y="75" class="col-type">INTEGER</text>
+    <text x="12" y="95" class="col-fk">FK  user_id</text><text x="210" y="95" class="col-type">INTEGER</text>
+    <text x="12" y="115" class="col-regular">    incident_type</text><text x="210" y="115" class="col-type">VARCHAR(50)</text>
+    <text x="12" y="135" class="col-regular">    reported_at</text><text x="210" y="135" class="col-type">TIMESTAMPTZ</text>
+    <text x="12" y="155" class="col-regular">    expires_at</text><text x="210" y="155" class="col-type">TIMESTAMPTZ</text>
+    <text x="12" y="175" class="col-regular">    upvotes</text><text x="210" y="175" class="col-type">INTEGER</text>
+  </g>
+
+  <!-- Entity 11: NAVIGATION_SESSIONS (x: 1220, y: 100, w: 330, h: 310) -->
+  <g transform="translate(1220, 100)" filter="url(#shadow)">
+    <rect width="330" height="310" class="table-card"/>
+    <path d="M 0 8 Q 0 0 8 0 L 322 0 Q 330 0 330 8 L 330 32 L 0 32 Z" class="header-bg" style="fill: #6d28d9;"/>
+    <text x="12" y="22" class="header-title">navigation_sessions (Core Trips)</text>
+    <text x="12" y="55" class="col-pk">PK  session_id</text><text x="230" y="55" class="col-type">INTEGER</text>
+    <text x="12" y="75" class="col-fk">FK  user_id (Guest=NULL)</text><text x="230" y="75" class="col-type">INTEGER</text>
+    <text x="12" y="95" class="col-fk">FK  origin_place_id</text><text x="230" y="95" class="col-type">INTEGER</text>
+    <text x="12" y="115" class="col-regular">    origin_lat/lng</text><text x="230" y="115" class="col-type">DECIMAL(9,6)</text>
+    <text x="12" y="135" class="col-fk">FK  dest_place_id</text><text x="230" y="135" class="col-type">INTEGER</text>
+    <text x="12" y="155" class="col-regular">    travel_mode</text><text x="230" y="155" class="col-type">VARCHAR(30)</text>
+    <text x="12" y="175" class="col-regular">    started_at</text><text x="230" y="175" class="col-type">TIMESTAMPTZ</text>
+    <text x="12" y="195" class="col-regular">    distance_km</text><text x="230" y="195" class="col-type">DECIMAL(8,2)</text>
+    <text x="12" y="215" class="col-regular">    eta_minutes</text><text x="230" y="215" class="col-type">INTEGER</text>
+    <text x="12" y="235" class="col-regular">    actual_minutes</text><text x="230" y="235" class="col-type">INTEGER</text>
+    <text x="12" y="255" class="col-regular">    rerouted_count</text><text x="230" y="255" class="col-type">INTEGER</text>
+    <text x="12" y="275" class="col-regular">    status</text><text x="230" y="275" class="col-type">VARCHAR(30)</text>
+  </g>
+
+  <!-- Connectors -->
+  <!-- cities -> places -->
+  <path d="M 310 150 L 420 150" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="345" y="142" class="rel-label">1:N</text>
+
+  <!-- place_categories -> places -->
+  <path d="M 310 320 L 420 220" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="345" y="280" class="rel-label">1:N</text>
+
+  <!-- cities -> road_segments -->
+  <path d="M 310 120 L 565 60 L 820 120" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="560" y="52" class="rel-label">1:N (Urban Roads)</text>
+
+  <!-- places -> opening_hours -->
+  <path d="M 565 430 L 565 470" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="575" y="455" class="rel-label">1:N</text>
+
+  <!-- places -> place_reviews -->
+  <path d="M 565 430 L 565 640" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="575" y="625" class="rel-label">1:N</text>
+
+  <!-- users -> place_reviews -->
+  <path d="M 310 520 L 420 700" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="345" y="620" class="rel-label">1:N</text>
+
+  <!-- users -> saved_places -->
+  <path d="M 310 550 L 420 890" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="345" y="740" class="rel-label">1:N</text>
+
+  <!-- places -> saved_places -->
+  <path d="M 420 400 L 370 700 L 420 920" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="350" y="800" class="rel-label">1:N</text>
+
+  <!-- road_segments -> traffic_readings -->
+  <path d="M 970 350 L 970 390" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="980" y="375" class="rel-label">1:N</text>
+
+  <!-- road_segments -> incident_reports -->
+  <path d="M 970 350 L 970 580" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="980" y="565" class="rel-label">1:N</text>
+
+  <!-- places -> navigation_sessions (dest & origin) -->
+  <path d="M 710 200 L 1220 200" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="940" y="192" class="rel-label">1:N (origin/dest POI)</text>
+
+  <!-- users -> navigation_sessions -->
+  <path d="M 280 620 L 280 1020 L 1380 1020 L 1380 410" class="rel-line" marker-end="url(#arrow)"/>
+  <text x="750" y="1010" class="rel-label">1:N (User Session, optional)</text>
+
+</svg>

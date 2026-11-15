@@ -23,11 +23,11 @@
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
 | Group Lead & Member 1 | Ashwin Maurya | 2501010099 | WhiteShadow005 |
-| Member 2 | Arnav Gupta | | |
-| Member 3 | Shaurya Pratap Singh | | |
-| Member 4 | Yashvardhan Mundhra | | |
+| Member 2 | Arnav Gupta | 2501010080 | |
+| Member 3 | Shaurya Pratap Singh | 2501010591 | sps-exe |
+| Member 4 | Yashvardhan Mundhra | 2501010527 | |
 
-**Team No.:** T0010 (ReguFlow) · **Section:** ____ · **Repository URL:** https://github.com/WhiteShadow005/DE_Project_2026
+**Team No.:** T0010 (ReguFlow) · **Section:** D · **Repository URL:** https://github.com/WhiteShadow005/DE_Project_2026
 
 ---
 
