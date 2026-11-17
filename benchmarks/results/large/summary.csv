@@ -1,0 +1,31 @@
+query_id,type,avg_ms,median_ms,min_ms,max_ms,scan_nodes
+R01,READ,0.384,0.378,0.342,0.432,Index Scan using idx_places_cat_lat_lng on places
+R02,READ,0.078,0.076,0.068,0.090,Index Scan using places_pkey on places | Index Scan using opening_hours_pkey on opening_hours
+R03,READ,1.246,1.220,1.110,1.408,Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_city_name_trgm
+R04,READ,2.152,2.115,1.980,2.361,Index Scan using idx_places_cat_city on places | Index Scan using opening_hours_pkey on opening_hours
+R05,READ,0.152,0.148,0.132,0.176,Index Scan using idx_reviews_place_created on place_reviews | Index Scan using users_pkey on users
+R06,READ,0.118,0.115,0.104,0.135,Index Scan using saved_places_pkey on saved_places | Index Scan using places_pkey on places
+R07,READ,1.450,1.425,1.310,1.615,Index Scan using idx_traffic_segment_time on traffic_readings | Index Scan using road_segments_pkey on road_segments
+R08,READ,0.088,0.085,0.076,0.103,Index Scan using idx_traffic_alert on traffic_readings | Index Scan using road_segments_pkey on road_segments
+R09,READ,0.278,0.272,0.245,0.317,Index Scan using idx_traffic_segment_time on traffic_readings
+R10,READ,0.082,0.080,0.071,0.095,Index Scan using idx_incident_date_city on incident_reports | Index Scan using road_segments_pkey on road_segments
+R11,READ,42.500,41.850,39.200,46.450,Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_completed_year
+R12,READ,3.850,3.780,3.450,4.320,Index Scan using idx_places_city on places | Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_dest_started
+R13,READ,8.600,8.450,7.900,9.450,Index Only Scan using places_pkey on places | Index Only Scan using idx_nav_origin_place on navigation_sessions
+R14,READ,18.400,18.100,16.800,20.300,Bitmap Heap Scan on place_reviews | Bitmap Index Scan on idx_reviews_created_user | Index Scan using users_pkey on users
+R15,READ,112.500,110.200,104.800,122.500,Seq Scan on places | Index Scan using idx_reviews_place_rating on place_reviews
+R16,READ,14.200,13.900,12.800,15.900,Index Scan using idx_places_closed on places | Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_dest_started
+R17,READ,85.300,84.100,79.500,92.300,Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_rerouted
+R18,READ,24.100,23.800,22.100,26.400,Index Only Scan using idx_nav_status_mode on navigation_sessions
+R19,READ,12.800,12.500,11.600,14.300,Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_cat_city | Bitmap Index Scan on idx_nav_dest
+R20,READ,2.850,2.800,2.550,3.200,Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_started_date
+R21,READ,38.400,37.800,35.200,42.200,Index Scan using place_categories_pkey on place_categories | Index Scan using idx_places_category on places | Index Only Scan using opening_hours_pkey on opening_hours
+R22,READ,1.950,1.920,1.750,2.180,Index Scan Backward using idx_reviews_created on place_reviews
+R23,READ,0.062,0.060,0.054,0.072,Index Scan using idx_places_plus_code on places
+R24,READ,6.800,6.650,6.100,7.650,Index Scan using idx_places_cat_city_name on places
+R25,READ,145.200,142.500,135.000,158.100,Seq Scan on road_segments | Index Scan using idx_traffic_segment_speed on traffic_readings
+W01,WRITE,0.850,0.840,0.780,0.930,(no scan)
+W02,WRITE,0.720,0.710,0.660,0.790,(no scan)
+W03,WRITE,0.680,0.670,0.620,0.750,(no scan)
+W04,WRITE,240.500,238.000,225.000,258.500,Seq Scan on places | Seq Scan on place_reviews
+W05,WRITE,3.100,3.050,2.800,3.450,Bitmap Heap Scan on incident_reports | Bitmap Index Scan on idx_incident_expires

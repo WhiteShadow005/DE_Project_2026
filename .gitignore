@@ -76,6 +76,8 @@ data/warehouse/*
 *.duckdb
 *.parquet
 *.csv
+!benchmarks/results/**/*.csv
+!benchmarks/results/**/summary.csv
 *.tsv
 *.xlsx
 *.parquet
