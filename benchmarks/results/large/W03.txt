@@ -1,0 +1,20 @@
+=== W03 run 1 ===
+Query Text: -- @W03 workload query
+Plan Tree:
+  -> (no scan)
+Planning Time: 0.085 ms
+Execution Time: 0.620 ms
+
+=== W03 run 2 ===
+Query Text: -- @W03 workload query
+Plan Tree:
+  -> (no scan)
+Planning Time: 0.085 ms
+Execution Time: 0.670 ms
+
+=== W03 run 3 ===
+Query Text: -- @W03 workload query
+Plan Tree:
+  -> (no scan)
+Planning Time: 0.085 ms
+Execution Time: 0.750 ms

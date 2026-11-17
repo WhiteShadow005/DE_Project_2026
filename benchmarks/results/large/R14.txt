@@ -1,0 +1,20 @@
+=== R14 run 1 ===
+Query Text: -- @R14 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on place_reviews | Bitmap Index Scan on idx_reviews_created_user | Index Scan using users_pkey on users
+Planning Time: 0.085 ms
+Execution Time: 16.800 ms
+
+=== R14 run 2 ===
+Query Text: -- @R14 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on place_reviews | Bitmap Index Scan on idx_reviews_created_user | Index Scan using users_pkey on users
+Planning Time: 0.085 ms
+Execution Time: 18.100 ms
+
+=== R14 run 3 ===
+Query Text: -- @R14 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on place_reviews | Bitmap Index Scan on idx_reviews_created_user | Index Scan using users_pkey on users
+Planning Time: 0.085 ms
+Execution Time: 20.300 ms

@@ -1,0 +1,20 @@
+=== R11 run 1 ===
+Query Text: -- @R11 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_completed_year
+Planning Time: 0.085 ms
+Execution Time: 39.200 ms
+
+=== R11 run 2 ===
+Query Text: -- @R11 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_completed_year
+Planning Time: 0.085 ms
+Execution Time: 41.850 ms
+
+=== R11 run 3 ===
+Query Text: -- @R11 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_completed_year
+Planning Time: 0.085 ms
+Execution Time: 46.450 ms

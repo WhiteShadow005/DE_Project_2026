@@ -1,0 +1,20 @@
+=== R24 run 1 ===
+Query Text: -- @R24 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_city_name on places
+Planning Time: 0.085 ms
+Execution Time: 6.100 ms
+
+=== R24 run 2 ===
+Query Text: -- @R24 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_city_name on places
+Planning Time: 0.085 ms
+Execution Time: 6.650 ms
+
+=== R24 run 3 ===
+Query Text: -- @R24 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_city_name on places
+Planning Time: 0.085 ms
+Execution Time: 7.650 ms

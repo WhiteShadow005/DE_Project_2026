@@ -1,0 +1,20 @@
+=== R07 run 1 ===
+Query Text: -- @R07 workload query
+Plan Tree:
+  -> Index Scan using idx_traffic_segment_time on traffic_readings | Index Scan using road_segments_pkey on road_segments
+Planning Time: 0.085 ms
+Execution Time: 1.310 ms
+
+=== R07 run 2 ===
+Query Text: -- @R07 workload query
+Plan Tree:
+  -> Index Scan using idx_traffic_segment_time on traffic_readings | Index Scan using road_segments_pkey on road_segments
+Planning Time: 0.085 ms
+Execution Time: 1.425 ms
+
+=== R07 run 3 ===
+Query Text: -- @R07 workload query
+Plan Tree:
+  -> Index Scan using idx_traffic_segment_time on traffic_readings | Index Scan using road_segments_pkey on road_segments
+Planning Time: 0.085 ms
+Execution Time: 1.615 ms

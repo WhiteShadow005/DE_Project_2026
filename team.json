@@ -9,12 +9,12 @@
     {
       "name": "Ashwin Maurya",
       "enrollment_no": "2501010099",
-      "github": "WhiteShadow005"
+      "github": "ashwincraft80"
     },
     {
       "name": "Arnav Gupta",
       "enrollment_no": "2501010080",
-      "github": ""
+      "github": "arnavgt05"
     },
     {
       "name": "Shaurya Pratap Singh",
@@ -24,7 +24,7 @@
     {
       "name": "Yashvardhan Mundhra",
       "enrollment_no": "2501010527",
-      "github": ""
+      "github": "Marwadi-me"
     }
   ],
   "postgres_version": "16",

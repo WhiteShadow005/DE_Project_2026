@@ -1,0 +1,20 @@
+=== W04 run 1 ===
+Query Text: -- @W04 workload query
+Plan Tree:
+  -> Seq Scan on places | Seq Scan on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 225.000 ms
+
+=== W04 run 2 ===
+Query Text: -- @W04 workload query
+Plan Tree:
+  -> Seq Scan on places | Seq Scan on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 238.000 ms
+
+=== W04 run 3 ===
+Query Text: -- @W04 workload query
+Plan Tree:
+  -> Seq Scan on places | Seq Scan on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 258.500 ms

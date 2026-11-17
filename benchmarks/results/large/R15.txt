@@ -1,0 +1,20 @@
+=== R15 run 1 ===
+Query Text: -- @R15 workload query
+Plan Tree:
+  -> Seq Scan on places | Index Scan using idx_reviews_place_rating on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 104.800 ms
+
+=== R15 run 2 ===
+Query Text: -- @R15 workload query
+Plan Tree:
+  -> Seq Scan on places | Index Scan using idx_reviews_place_rating on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 110.200 ms
+
+=== R15 run 3 ===
+Query Text: -- @R15 workload query
+Plan Tree:
+  -> Seq Scan on places | Index Scan using idx_reviews_place_rating on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 122.500 ms

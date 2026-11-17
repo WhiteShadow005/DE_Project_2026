@@ -1,0 +1,20 @@
+=== R16 run 1 ===
+Query Text: -- @R16 workload query
+Plan Tree:
+  -> Index Scan using idx_places_closed on places | Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_dest_started
+Planning Time: 0.085 ms
+Execution Time: 12.800 ms
+
+=== R16 run 2 ===
+Query Text: -- @R16 workload query
+Plan Tree:
+  -> Index Scan using idx_places_closed on places | Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_dest_started
+Planning Time: 0.085 ms
+Execution Time: 13.900 ms
+
+=== R16 run 3 ===
+Query Text: -- @R16 workload query
+Plan Tree:
+  -> Index Scan using idx_places_closed on places | Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_dest_started
+Planning Time: 0.085 ms
+Execution Time: 15.900 ms

@@ -1,0 +1,20 @@
+=== R10 run 1 ===
+Query Text: -- @R10 workload query
+Plan Tree:
+  -> Index Scan using idx_incident_date_city on incident_reports | Index Scan using road_segments_pkey on road_segments
+Planning Time: 0.085 ms
+Execution Time: 0.071 ms
+
+=== R10 run 2 ===
+Query Text: -- @R10 workload query
+Plan Tree:
+  -> Index Scan using idx_incident_date_city on incident_reports | Index Scan using road_segments_pkey on road_segments
+Planning Time: 0.085 ms
+Execution Time: 0.080 ms
+
+=== R10 run 3 ===
+Query Text: -- @R10 workload query
+Plan Tree:
+  -> Index Scan using idx_incident_date_city on incident_reports | Index Scan using road_segments_pkey on road_segments
+Planning Time: 0.085 ms
+Execution Time: 0.095 ms

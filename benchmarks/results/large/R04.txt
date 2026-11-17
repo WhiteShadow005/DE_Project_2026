@@ -1,0 +1,20 @@
+=== R04 run 1 ===
+Query Text: -- @R04 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_city on places | Index Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 1.980 ms
+
+=== R04 run 2 ===
+Query Text: -- @R04 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_city on places | Index Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 2.115 ms
+
+=== R04 run 3 ===
+Query Text: -- @R04 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_city on places | Index Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 2.361 ms

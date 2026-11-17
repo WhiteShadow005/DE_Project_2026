@@ -1,0 +1,20 @@
+=== R06 run 1 ===
+Query Text: -- @R06 workload query
+Plan Tree:
+  -> Index Scan using saved_places_pkey on saved_places | Index Scan using places_pkey on places
+Planning Time: 0.085 ms
+Execution Time: 0.104 ms
+
+=== R06 run 2 ===
+Query Text: -- @R06 workload query
+Plan Tree:
+  -> Index Scan using saved_places_pkey on saved_places | Index Scan using places_pkey on places
+Planning Time: 0.085 ms
+Execution Time: 0.115 ms
+
+=== R06 run 3 ===
+Query Text: -- @R06 workload query
+Plan Tree:
+  -> Index Scan using saved_places_pkey on saved_places | Index Scan using places_pkey on places
+Planning Time: 0.085 ms
+Execution Time: 0.135 ms

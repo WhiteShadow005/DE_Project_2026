@@ -1,0 +1,20 @@
+=== R22 run 1 ===
+Query Text: -- @R22 workload query
+Plan Tree:
+  -> Index Scan Backward using idx_reviews_created on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 1.750 ms
+
+=== R22 run 2 ===
+Query Text: -- @R22 workload query
+Plan Tree:
+  -> Index Scan Backward using idx_reviews_created on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 1.920 ms
+
+=== R22 run 3 ===
+Query Text: -- @R22 workload query
+Plan Tree:
+  -> Index Scan Backward using idx_reviews_created on place_reviews
+Planning Time: 0.085 ms
+Execution Time: 2.180 ms

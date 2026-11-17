@@ -1,0 +1,20 @@
+=== R19 run 1 ===
+Query Text: -- @R19 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_cat_city | Bitmap Index Scan on idx_nav_dest
+Planning Time: 0.085 ms
+Execution Time: 11.600 ms
+
+=== R19 run 2 ===
+Query Text: -- @R19 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_cat_city | Bitmap Index Scan on idx_nav_dest
+Planning Time: 0.085 ms
+Execution Time: 12.500 ms
+
+=== R19 run 3 ===
+Query Text: -- @R19 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_cat_city | Bitmap Index Scan on idx_nav_dest
+Planning Time: 0.085 ms
+Execution Time: 14.300 ms

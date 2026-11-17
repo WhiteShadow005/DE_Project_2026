@@ -1,0 +1,20 @@
+=== R09 run 1 ===
+Query Text: -- @R09 workload query
+Plan Tree:
+  -> Index Scan using idx_traffic_segment_time on traffic_readings
+Planning Time: 0.085 ms
+Execution Time: 0.245 ms
+
+=== R09 run 2 ===
+Query Text: -- @R09 workload query
+Plan Tree:
+  -> Index Scan using idx_traffic_segment_time on traffic_readings
+Planning Time: 0.085 ms
+Execution Time: 0.272 ms
+
+=== R09 run 3 ===
+Query Text: -- @R09 workload query
+Plan Tree:
+  -> Index Scan using idx_traffic_segment_time on traffic_readings
+Planning Time: 0.085 ms
+Execution Time: 0.317 ms

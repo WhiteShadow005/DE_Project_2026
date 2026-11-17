@@ -1,0 +1,20 @@
+=== R02 run 1 ===
+Query Text: -- @R02 workload query
+Plan Tree:
+  -> Index Scan using places_pkey on places | Index Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 0.068 ms
+
+=== R02 run 2 ===
+Query Text: -- @R02 workload query
+Plan Tree:
+  -> Index Scan using places_pkey on places | Index Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 0.076 ms
+
+=== R02 run 3 ===
+Query Text: -- @R02 workload query
+Plan Tree:
+  -> Index Scan using places_pkey on places | Index Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 0.090 ms

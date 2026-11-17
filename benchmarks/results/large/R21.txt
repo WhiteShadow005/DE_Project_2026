@@ -1,0 +1,20 @@
+=== R21 run 1 ===
+Query Text: -- @R21 workload query
+Plan Tree:
+  -> Index Scan using place_categories_pkey on place_categories | Index Scan using idx_places_category on places | Index Only Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 35.200 ms
+
+=== R21 run 2 ===
+Query Text: -- @R21 workload query
+Plan Tree:
+  -> Index Scan using place_categories_pkey on place_categories | Index Scan using idx_places_category on places | Index Only Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 37.800 ms
+
+=== R21 run 3 ===
+Query Text: -- @R21 workload query
+Plan Tree:
+  -> Index Scan using place_categories_pkey on place_categories | Index Scan using idx_places_category on places | Index Only Scan using opening_hours_pkey on opening_hours
+Planning Time: 0.085 ms
+Execution Time: 42.200 ms

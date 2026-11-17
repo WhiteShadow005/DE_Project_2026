@@ -1,0 +1,20 @@
+=== R13 run 1 ===
+Query Text: -- @R13 workload query
+Plan Tree:
+  -> Index Only Scan using places_pkey on places | Index Only Scan using idx_nav_origin_place on navigation_sessions
+Planning Time: 0.085 ms
+Execution Time: 7.900 ms
+
+=== R13 run 2 ===
+Query Text: -- @R13 workload query
+Plan Tree:
+  -> Index Only Scan using places_pkey on places | Index Only Scan using idx_nav_origin_place on navigation_sessions
+Planning Time: 0.085 ms
+Execution Time: 8.450 ms
+
+=== R13 run 3 ===
+Query Text: -- @R13 workload query
+Plan Tree:
+  -> Index Only Scan using places_pkey on places | Index Only Scan using idx_nav_origin_place on navigation_sessions
+Planning Time: 0.085 ms
+Execution Time: 9.450 ms

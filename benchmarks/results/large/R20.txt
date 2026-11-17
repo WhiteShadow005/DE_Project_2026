@@ -1,0 +1,20 @@
+=== R20 run 1 ===
+Query Text: -- @R20 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_started_date
+Planning Time: 0.085 ms
+Execution Time: 2.550 ms
+
+=== R20 run 2 ===
+Query Text: -- @R20 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_started_date
+Planning Time: 0.085 ms
+Execution Time: 2.800 ms
+
+=== R20 run 3 ===
+Query Text: -- @R20 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_started_date
+Planning Time: 0.085 ms
+Execution Time: 3.200 ms

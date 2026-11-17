@@ -1,0 +1,20 @@
+=== R17 run 1 ===
+Query Text: -- @R17 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_rerouted
+Planning Time: 0.085 ms
+Execution Time: 79.500 ms
+
+=== R17 run 2 ===
+Query Text: -- @R17 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_rerouted
+Planning Time: 0.085 ms
+Execution Time: 84.100 ms
+
+=== R17 run 3 ===
+Query Text: -- @R17 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on navigation_sessions | Bitmap Index Scan on idx_nav_rerouted
+Planning Time: 0.085 ms
+Execution Time: 92.300 ms

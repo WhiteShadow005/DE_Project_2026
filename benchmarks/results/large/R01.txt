@@ -1,0 +1,20 @@
+=== R01 run 1 ===
+Query Text: -- @R01 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_lat_lng on places
+Planning Time: 0.085 ms
+Execution Time: 0.342 ms
+
+=== R01 run 2 ===
+Query Text: -- @R01 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_lat_lng on places
+Planning Time: 0.085 ms
+Execution Time: 0.378 ms
+
+=== R01 run 3 ===
+Query Text: -- @R01 workload query
+Plan Tree:
+  -> Index Scan using idx_places_cat_lat_lng on places
+Planning Time: 0.085 ms
+Execution Time: 0.432 ms

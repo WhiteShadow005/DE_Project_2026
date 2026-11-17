@@ -1,0 +1,20 @@
+=== R03 run 1 ===
+Query Text: -- @R03 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_city_name_trgm
+Planning Time: 0.085 ms
+Execution Time: 1.110 ms
+
+=== R03 run 2 ===
+Query Text: -- @R03 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_city_name_trgm
+Planning Time: 0.085 ms
+Execution Time: 1.220 ms
+
+=== R03 run 3 ===
+Query Text: -- @R03 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on places | Bitmap Index Scan on idx_places_city_name_trgm
+Planning Time: 0.085 ms
+Execution Time: 1.408 ms

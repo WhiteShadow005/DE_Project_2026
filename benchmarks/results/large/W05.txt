@@ -1,0 +1,20 @@
+=== W05 run 1 ===
+Query Text: -- @W05 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on incident_reports | Bitmap Index Scan on idx_incident_expires
+Planning Time: 0.085 ms
+Execution Time: 2.800 ms
+
+=== W05 run 2 ===
+Query Text: -- @W05 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on incident_reports | Bitmap Index Scan on idx_incident_expires
+Planning Time: 0.085 ms
+Execution Time: 3.050 ms
+
+=== W05 run 3 ===
+Query Text: -- @W05 workload query
+Plan Tree:
+  -> Bitmap Heap Scan on incident_reports | Bitmap Index Scan on idx_incident_expires
+Planning Time: 0.085 ms
+Execution Time: 3.450 ms

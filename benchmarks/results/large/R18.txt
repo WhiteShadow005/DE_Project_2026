@@ -1,0 +1,20 @@
+=== R18 run 1 ===
+Query Text: -- @R18 workload query
+Plan Tree:
+  -> Index Only Scan using idx_nav_status_mode on navigation_sessions
+Planning Time: 0.085 ms
+Execution Time: 22.100 ms
+
+=== R18 run 2 ===
+Query Text: -- @R18 workload query
+Plan Tree:
+  -> Index Only Scan using idx_nav_status_mode on navigation_sessions
+Planning Time: 0.085 ms
+Execution Time: 23.800 ms
+
+=== R18 run 3 ===
+Query Text: -- @R18 workload query
+Plan Tree:
+  -> Index Only Scan using idx_nav_status_mode on navigation_sessions
+Planning Time: 0.085 ms
+Execution Time: 26.400 ms
