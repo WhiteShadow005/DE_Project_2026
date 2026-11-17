@@ -1,0 +1,75 @@
+=== R08 run 1 ===
+Sort  (cost=22.86..22.86 rows=1 width=48) (actual time=0.064..0.064 rows=3.00 loops=1)
+  Sort Key: t.recorded_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=8 read=2
+  ->  Hash Join  (cost=14.56..22.85 rows=1 width=48) (actual time=0.056..0.058 rows=3.00 loops=1)
+        Hash Cond: (t.segment_id = s.segment_id)
+        Buffers: shared hit=5 read=2
+        ->  Index Only Scan using idx_traffic_congestion_heavy on traffic_readings t  (cost=0.29..8.53 rows=14 width=23) (actual time=0.028..0.029 rows=23.00 loops=1)
+              Index Cond: (recorded_at >= '2026-06-30 18:00:00+05:30'::timestamp with time zone)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=1 read=2
+        ->  Hash  (cost=11.78..11.78 rows=200 width=29) (actual time=0.024..0.025 rows=200.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 21kB
+              Buffers: shared hit=4
+              ->  Index Only Scan using idx_road_city_name on road_segments s  (cost=0.28..11.78 rows=200 width=29) (actual time=0.007..0.014 rows=200.00 loops=1)
+                    Index Cond: (city_id = 1)
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=402
+Planning Time: 0.403 ms
+Execution Time: 0.078 ms
+=== R08 run 2 ===
+Sort  (cost=22.86..22.86 rows=1 width=48) (actual time=0.042..0.043 rows=3.00 loops=1)
+  Sort Key: t.recorded_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=14.56..22.85 rows=1 width=48) (actual time=0.034..0.036 rows=3.00 loops=1)
+        Hash Cond: (t.segment_id = s.segment_id)
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_traffic_congestion_heavy on traffic_readings t  (cost=0.29..8.53 rows=14 width=23) (actual time=0.004..0.004 rows=23.00 loops=1)
+              Index Cond: (recorded_at >= '2026-06-30 18:00:00+05:30'::timestamp with time zone)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=3
+        ->  Hash  (cost=11.78..11.78 rows=200 width=29) (actual time=0.027..0.027 rows=200.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 21kB
+              Buffers: shared hit=4
+              ->  Index Only Scan using idx_road_city_name on road_segments s  (cost=0.28..11.78 rows=200 width=29) (actual time=0.007..0.016 rows=200.00 loops=1)
+                    Index Cond: (city_id = 1)
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=402
+Planning Time: 0.409 ms
+Execution Time: 0.057 ms
+=== R08 run 3 ===
+Sort  (cost=22.86..22.86 rows=1 width=48) (actual time=0.037..0.037 rows=3.00 loops=1)
+  Sort Key: t.recorded_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=14.56..22.85 rows=1 width=48) (actual time=0.029..0.031 rows=3.00 loops=1)
+        Hash Cond: (t.segment_id = s.segment_id)
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_traffic_congestion_heavy on traffic_readings t  (cost=0.29..8.53 rows=14 width=23) (actual time=0.003..0.004 rows=23.00 loops=1)
+              Index Cond: (recorded_at >= '2026-06-30 18:00:00+05:30'::timestamp with time zone)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=3
+        ->  Hash  (cost=11.78..11.78 rows=200 width=29) (actual time=0.023..0.023 rows=200.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 21kB
+              Buffers: shared hit=4
+              ->  Index Only Scan using idx_road_city_name on road_segments s  (cost=0.28..11.78 rows=200 width=29) (actual time=0.006..0.014 rows=200.00 loops=1)
+                    Index Cond: (city_id = 1)
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=402
+Planning Time: 0.358 ms
+Execution Time: 0.050 ms

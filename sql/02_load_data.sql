@@ -79,7 +79,7 @@ SELECT 'place_reviews', count(*), 89998 FROM place_reviews
 UNION ALL
 SELECT 'saved_places', count(*), 50000 FROM saved_places
 UNION ALL
-SELECT 'road_segments', count(*), 1000 FROM road_segments
+SELECT 'road_segments', count(*), 2000 FROM road_segments
 UNION ALL
 SELECT 'traffic_readings', count(*), 250000 FROM traffic_readings
 UNION ALL

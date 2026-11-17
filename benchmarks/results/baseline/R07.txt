@@ -1,0 +1,84 @@
+=== R07 run 1 ===
+Unique  (cost=327.07..3885.20 rows=1500 width=48) (actual time=0.191..3.580 rows=40.00 loops=1)
+  Buffers: shared hit=5040
+  ->  Incremental Sort  (cost=327.07..3881.45 rows=1500 width=48) (actual time=0.191..3.478 rows=5048.00 loops=1)
+        Sort Key: t.segment_id, t.recorded_at DESC
+        Presorted Key: t.segment_id
+        Full-sort Groups: 40  Sort Method: quicksort  Average Memory: 29kB  Peak Memory: 29kB
+        Pre-sorted Groups: 40  Sort Method: quicksort  Average Memory: 33kB  Peak Memory: 33kB
+        Buffers: shared hit=5040
+        ->  Nested Loop  (cost=5.67..3810.22 rows=1500 width=48) (actual time=0.022..2.549 rows=5048.00 loops=1)
+              Buffers: shared hit=5034
+              ->  Index Scan using road_segments_pkey on road_segments s  (cost=0.28..105.28 rows=12 width=29) (actual time=0.005..0.129 rows=40.00 loops=1)
+                    Filter: (((road_name)::text ~~ 'Outer Ring Road%'::text) AND (city_id = 1))
+                    Rows Removed by Filter: 1960
+                    Index Searches: 1
+                    Buffers: shared hit=37
+              ->  Bitmap Heap Scan on traffic_readings t  (cost=5.39..307.50 rows=125 width=23) (actual time=0.010..0.054 rows=126.20 loops=40)
+                    Recheck Cond: (segment_id = s.segment_id)
+                    Heap Blocks: exact=4865
+                    Buffers: shared hit=4997
+                    ->  Bitmap Index Scan on uq_segment_recorded_at  (cost=0.00..5.36 rows=125 width=0) (actual time=0.005..0.005 rows=126.20 loops=40)
+                          Index Cond: (segment_id = s.segment_id)
+                          Index Searches: 40
+                          Buffers: shared hit=132
+Planning:
+  Buffers: shared hit=188
+Planning Time: 0.317 ms
+Execution Time: 3.605 ms
+=== R07 run 2 ===
+Unique  (cost=327.07..3885.20 rows=1500 width=48) (actual time=0.239..3.518 rows=40.00 loops=1)
+  Buffers: shared hit=5040
+  ->  Incremental Sort  (cost=327.07..3881.45 rows=1500 width=48) (actual time=0.239..3.416 rows=5048.00 loops=1)
+        Sort Key: t.segment_id, t.recorded_at DESC
+        Presorted Key: t.segment_id
+        Full-sort Groups: 40  Sort Method: quicksort  Average Memory: 29kB  Peak Memory: 29kB
+        Pre-sorted Groups: 40  Sort Method: quicksort  Average Memory: 33kB  Peak Memory: 33kB
+        Buffers: shared hit=5040
+        ->  Nested Loop  (cost=5.67..3810.22 rows=1500 width=48) (actual time=0.028..2.459 rows=5048.00 loops=1)
+              Buffers: shared hit=5034
+              ->  Index Scan using road_segments_pkey on road_segments s  (cost=0.28..105.28 rows=12 width=29) (actual time=0.006..0.136 rows=40.00 loops=1)
+                    Filter: (((road_name)::text ~~ 'Outer Ring Road%'::text) AND (city_id = 1))
+                    Rows Removed by Filter: 1960
+                    Index Searches: 1
+                    Buffers: shared hit=37
+              ->  Bitmap Heap Scan on traffic_readings t  (cost=5.39..307.50 rows=125 width=23) (actual time=0.010..0.052 rows=126.20 loops=40)
+                    Recheck Cond: (segment_id = s.segment_id)
+                    Heap Blocks: exact=4865
+                    Buffers: shared hit=4997
+                    ->  Bitmap Index Scan on uq_segment_recorded_at  (cost=0.00..5.36 rows=125 width=0) (actual time=0.005..0.005 rows=126.20 loops=40)
+                          Index Cond: (segment_id = s.segment_id)
+                          Index Searches: 40
+                          Buffers: shared hit=132
+Planning:
+  Buffers: shared hit=188
+Planning Time: 0.280 ms
+Execution Time: 3.543 ms
+=== R07 run 3 ===
+Unique  (cost=327.07..3885.20 rows=1500 width=48) (actual time=0.182..3.588 rows=40.00 loops=1)
+  Buffers: shared hit=5040
+  ->  Incremental Sort  (cost=327.07..3881.45 rows=1500 width=48) (actual time=0.182..3.481 rows=5048.00 loops=1)
+        Sort Key: t.segment_id, t.recorded_at DESC
+        Presorted Key: t.segment_id
+        Full-sort Groups: 40  Sort Method: quicksort  Average Memory: 29kB  Peak Memory: 29kB
+        Pre-sorted Groups: 40  Sort Method: quicksort  Average Memory: 33kB  Peak Memory: 33kB
+        Buffers: shared hit=5040
+        ->  Nested Loop  (cost=5.67..3810.22 rows=1500 width=48) (actual time=0.020..2.507 rows=5048.00 loops=1)
+              Buffers: shared hit=5034
+              ->  Index Scan using road_segments_pkey on road_segments s  (cost=0.28..105.28 rows=12 width=29) (actual time=0.004..0.144 rows=40.00 loops=1)
+                    Filter: (((road_name)::text ~~ 'Outer Ring Road%'::text) AND (city_id = 1))
+                    Rows Removed by Filter: 1960
+                    Index Searches: 1
+                    Buffers: shared hit=37
+              ->  Bitmap Heap Scan on traffic_readings t  (cost=5.39..307.50 rows=125 width=23) (actual time=0.010..0.052 rows=126.20 loops=40)
+                    Recheck Cond: (segment_id = s.segment_id)
+                    Heap Blocks: exact=4865
+                    Buffers: shared hit=4997
+                    ->  Bitmap Index Scan on uq_segment_recorded_at  (cost=0.00..5.36 rows=125 width=0) (actual time=0.005..0.005 rows=126.20 loops=40)
+                          Index Cond: (segment_id = s.segment_id)
+                          Index Searches: 40
+                          Buffers: shared hit=132
+Planning:
+  Buffers: shared hit=188
+Planning Time: 0.270 ms
+Execution Time: 3.611 ms

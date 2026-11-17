@@ -1,0 +1,96 @@
+=== R19 run 1 ===
+Sort  (cost=13879116.28..13879119.49 rows=1284 width=40) (actual time=13441.643..13441.672 rows=1067.00 loops=1)
+  Sort Key: ((SubPlan 1)) DESC
+  Sort Method: quicksort  Memory: 115kB
+  Buffers: shared hit=6198052
+  InitPlan 3
+    ->  Seq Scan on place_categories  (cost=0.00..1.15 rows=1 width=4) (actual time=0.002..0.002 rows=1.00 loops=1)
+          Filter: ((category_name)::text = 'Hospital'::text)
+          Rows Removed by Filter: 11
+          Buffers: shared hit=1
+  ->  Seq Scan on places p  (cost=0.00..13879048.83 rows=1284 width=40) (actual time=13.682..13441.126 rows=1067.00 loops=1)
+        Filter: ((category_id = (InitPlan 3).col1) AND (city_id = 1))
+        Rows Removed by Filter: 38975
+        Buffers: shared hit=6198049
+        SubPlan 1
+          ->  Aggregate  (cost=5404.02..5404.03 rows=1 width=8) (actual time=6.263..6.263 rows=1.00 loops=1067)
+                Buffers: shared hit=3098568
+                ->  Seq Scan on navigation_sessions n  (cost=0.00..5404.00 rows=6 width=0) (actual time=1.490..6.261 rows=5.09 loops=1067)
+                      Filter: (dest_place_id = p.place_id)
+                      Rows Removed by Filter: 199995
+                      Buffers: shared hit=3098568
+        SubPlan 2
+          ->  Aggregate  (cost=5404.02..5404.03 rows=1 width=8) (actual time=6.329..6.329 rows=1.00 loops=1067)
+                Buffers: shared hit=3098568
+                ->  Seq Scan on navigation_sessions n_1  (cost=0.00..5404.00 rows=6 width=8) (actual time=1.501..6.326 rows=5.09 loops=1067)
+                      Filter: (dest_place_id = p.place_id)
+                      Rows Removed by Filter: 199995
+                      Buffers: shared hit=3098568
+Planning:
+  Buffers: shared hit=193
+Planning Time: 0.255 ms
+Execution Time: 13441.721 ms
+=== R19 run 2 ===
+Sort  (cost=13879116.28..13879119.49 rows=1284 width=40) (actual time=13492.478..13492.511 rows=1067.00 loops=1)
+  Sort Key: ((SubPlan 1)) DESC
+  Sort Method: quicksort  Memory: 115kB
+  Buffers: shared hit=6198052
+  InitPlan 3
+    ->  Seq Scan on place_categories  (cost=0.00..1.15 rows=1 width=4) (actual time=0.002..0.002 rows=1.00 loops=1)
+          Filter: ((category_name)::text = 'Hospital'::text)
+          Rows Removed by Filter: 11
+          Buffers: shared hit=1
+  ->  Seq Scan on places p  (cost=0.00..13879048.83 rows=1284 width=40) (actual time=13.638..13491.977 rows=1067.00 loops=1)
+        Filter: ((category_id = (InitPlan 3).col1) AND (city_id = 1))
+        Rows Removed by Filter: 38975
+        Buffers: shared hit=6198049
+        SubPlan 1
+          ->  Aggregate  (cost=5404.02..5404.03 rows=1 width=8) (actual time=6.289..6.289 rows=1.00 loops=1067)
+                Buffers: shared hit=3098568
+                ->  Seq Scan on navigation_sessions n  (cost=0.00..5404.00 rows=6 width=0) (actual time=1.498..6.287 rows=5.09 loops=1067)
+                      Filter: (dest_place_id = p.place_id)
+                      Rows Removed by Filter: 199995
+                      Buffers: shared hit=3098568
+        SubPlan 2
+          ->  Aggregate  (cost=5404.02..5404.03 rows=1 width=8) (actual time=6.351..6.351 rows=1.00 loops=1067)
+                Buffers: shared hit=3098568
+                ->  Seq Scan on navigation_sessions n_1  (cost=0.00..5404.00 rows=6 width=8) (actual time=1.499..6.349 rows=5.09 loops=1067)
+                      Filter: (dest_place_id = p.place_id)
+                      Rows Removed by Filter: 199995
+                      Buffers: shared hit=3098568
+Planning:
+  Buffers: shared hit=193
+Planning Time: 0.253 ms
+Execution Time: 13492.558 ms
+=== R19 run 3 ===
+Sort  (cost=13879116.28..13879119.49 rows=1284 width=40) (actual time=13493.377..13493.408 rows=1067.00 loops=1)
+  Sort Key: ((SubPlan 1)) DESC
+  Sort Method: quicksort  Memory: 115kB
+  Buffers: shared hit=6198052
+  InitPlan 3
+    ->  Seq Scan on place_categories  (cost=0.00..1.15 rows=1 width=4) (actual time=0.002..0.002 rows=1.00 loops=1)
+          Filter: ((category_name)::text = 'Hospital'::text)
+          Rows Removed by Filter: 11
+          Buffers: shared hit=1
+  ->  Seq Scan on places p  (cost=0.00..13879048.83 rows=1284 width=40) (actual time=13.564..13492.934 rows=1067.00 loops=1)
+        Filter: ((category_id = (InitPlan 3).col1) AND (city_id = 1))
+        Rows Removed by Filter: 38975
+        Buffers: shared hit=6198049
+        SubPlan 1
+          ->  Aggregate  (cost=5404.02..5404.03 rows=1 width=8) (actual time=6.293..6.293 rows=1.00 loops=1067)
+                Buffers: shared hit=3098568
+                ->  Seq Scan on navigation_sessions n  (cost=0.00..5404.00 rows=6 width=0) (actual time=1.497..6.291 rows=5.09 loops=1067)
+                      Filter: (dest_place_id = p.place_id)
+                      Rows Removed by Filter: 199995
+                      Buffers: shared hit=3098568
+        SubPlan 2
+          ->  Aggregate  (cost=5404.02..5404.03 rows=1 width=8) (actual time=6.348..6.348 rows=1.00 loops=1067)
+                Buffers: shared hit=3098568
+                ->  Seq Scan on navigation_sessions n_1  (cost=0.00..5404.00 rows=6 width=8) (actual time=1.515..6.346 rows=5.09 loops=1067)
+                      Filter: (dest_place_id = p.place_id)
+                      Rows Removed by Filter: 199995
+                      Buffers: shared hit=3098568
+Planning:
+  Buffers: shared hit=193
+Planning Time: 0.269 ms
+Execution Time: 13493.457 ms

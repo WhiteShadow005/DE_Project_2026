@@ -1,0 +1,45 @@
+=== R03 run 1 ===
+Limit  (cost=1519.52..1519.57 rows=20 width=33) (actual time=7.431..7.433 rows=20.00 loops=1)
+  Buffers: shared hit=918
+  ->  Sort  (cost=1519.52..1520.17 rows=259 width=33) (actual time=7.430..7.431 rows=20.00 loops=1)
+        Sort Key: avg_rating DESC NULLS LAST, review_count DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=918
+        ->  Seq Scan on places  (cost=0.00..1512.63 rows=259 width=33) (actual time=0.034..7.381 rows=268.00 loops=1)
+              Filter: (((name)::text ~~* '%biryani%'::text) AND (city_id = 1))
+              Rows Removed by Filter: 39774
+              Buffers: shared hit=912
+Planning:
+  Buffers: shared hit=118
+Planning Time: 0.193 ms
+Execution Time: 7.443 ms
+=== R03 run 2 ===
+Limit  (cost=1519.52..1519.57 rows=20 width=33) (actual time=7.631..7.632 rows=20.00 loops=1)
+  Buffers: shared hit=918
+  ->  Sort  (cost=1519.52..1520.17 rows=259 width=33) (actual time=7.630..7.631 rows=20.00 loops=1)
+        Sort Key: avg_rating DESC NULLS LAST, review_count DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=918
+        ->  Seq Scan on places  (cost=0.00..1512.63 rows=259 width=33) (actual time=0.033..7.580 rows=268.00 loops=1)
+              Filter: (((name)::text ~~* '%biryani%'::text) AND (city_id = 1))
+              Rows Removed by Filter: 39774
+              Buffers: shared hit=912
+Planning:
+  Buffers: shared hit=118
+Planning Time: 0.171 ms
+Execution Time: 7.643 ms
+=== R03 run 3 ===
+Limit  (cost=1519.52..1519.57 rows=20 width=33) (actual time=7.650..7.651 rows=20.00 loops=1)
+  Buffers: shared hit=918
+  ->  Sort  (cost=1519.52..1520.17 rows=259 width=33) (actual time=7.649..7.650 rows=20.00 loops=1)
+        Sort Key: avg_rating DESC NULLS LAST, review_count DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=918
+        ->  Seq Scan on places  (cost=0.00..1512.63 rows=259 width=33) (actual time=0.032..7.600 rows=268.00 loops=1)
+              Filter: (((name)::text ~~* '%biryani%'::text) AND (city_id = 1))
+              Rows Removed by Filter: 39774
+              Buffers: shared hit=912
+Planning:
+  Buffers: shared hit=118
+Planning Time: 0.226 ms
+Execution Time: 7.663 ms

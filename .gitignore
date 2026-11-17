@@ -80,7 +80,8 @@ data/warehouse/*
 !benchmarks/results/**/summary.csv
 *.tsv
 *.xlsx
-*.parquet
+!benchmarks/results/**/*.csv
+!benchmarks/results/**/summary.csv
 
 # Logs & monitoring
 logs/

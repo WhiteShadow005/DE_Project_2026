@@ -84,7 +84,7 @@ CREATE TABLE places (
     phone VARCHAR(30),
     website VARCHAR(255),
     price_level INTEGER,
-    avg_rating DECIMAL(3, 2) NOT NULL DEFAULT 0.00,
+    avg_rating DECIMAL(3, 2),
     review_count INTEGER NOT NULL DEFAULT 0,
     is_permanently_closed BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMPTZ NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE places (
     CONSTRAINT chk_places_lat CHECK (latitude BETWEEN -90.0 AND 90.0),
     CONSTRAINT chk_places_lng CHECK (longitude BETWEEN -180.0 AND 180.0),
     CONSTRAINT chk_places_price_level CHECK (price_level IS NULL OR price_level BETWEEN 1 AND 4),
-    CONSTRAINT chk_places_avg_rating CHECK (avg_rating BETWEEN 0.00 AND 5.00),
+    CONSTRAINT chk_places_avg_rating CHECK (avg_rating IS NULL OR avg_rating BETWEEN 0.00 AND 5.00),
     CONSTRAINT chk_places_review_count CHECK (review_count >= 0)
 );
 
@@ -229,13 +229,13 @@ CREATE TABLE navigation_sessions (
     CONSTRAINT chk_nav_travel_mode CHECK (
         travel_mode IN ('DRIVE', 'TRANSIT', 'WALK', 'TWO_WHEELER')
     ),
-    CONSTRAINT chk_nav_status CHECK (status IN ('COMPLETED', 'CANCELLED')),
+    CONSTRAINT chk_nav_status CHECK (status IN ('COMPLETED', 'CANCELLED', 'IN_PROGRESS')),
     CONSTRAINT chk_nav_metrics CHECK (
         distance_km >= 0.0 AND eta_minutes > 0 AND rerouted_count >= 0
     ),
     CONSTRAINT chk_nav_actual_minutes CHECK (
         (status = 'COMPLETED' AND actual_minutes IS NOT NULL AND actual_minutes > 0) OR
-        (status = 'CANCELLED' AND actual_minutes IS NULL)
+        (status IN ('CANCELLED', 'IN_PROGRESS') AND actual_minutes IS NULL)
     )
 );
 

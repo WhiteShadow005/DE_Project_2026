@@ -1,0 +1,69 @@
+=== R24 run 1 ===
+Hash Join  (cost=1080.41..2631.96 rows=81 width=28) (actual time=3.744..3.799 rows=42.00 loops=1)
+  Hash Cond: ((b.name)::text = (a.name)::text)
+  Join Filter: ((b.place_id > a.place_id) AND (abs((b.latitude - a.latitude)) < 0.001) AND (abs((b.longitude - a.longitude)) < 0.001))
+  Rows Removed by Join Filter: 2219
+  Buffers: shared hit=1687
+  ->  Seq Scan on places b  (cost=0.00..1339.63 rows=40563 width=40) (actual time=0.003..0.930 rows=40042.00 loops=1)
+        Buffers: shared hit=934
+  ->  Hash  (cost=1053.26..1053.26 rows=2172 width=40) (actual time=0.839..0.839 rows=2177.00 loops=1)
+        Buckets: 4096  Batches: 1  Memory Usage: 188kB
+        Buffers: shared hit=753
+        ->  Bitmap Heap Scan on places a  (cost=86.68..1053.26 rows=2172 width=40) (actual time=0.111..0.689 rows=2177.00 loops=1)
+              Recheck Cond: ((city_id = 1) AND (category_id = 1))
+              Heap Blocks: exact=735
+              Buffers: shared hit=753
+              ->  Bitmap Index Scan on idx_places_city_cat_closed_rating  (cost=0.00..86.14 rows=2172 width=0) (actual time=0.077..0.077 rows=2207.00 loops=1)
+                    Index Cond: ((city_id = 1) AND (category_id = 1))
+                    Index Searches: 1
+                    Buffers: shared hit=18
+Planning:
+  Buffers: shared hit=472
+Planning Time: 0.368 ms
+Execution Time: 3.824 ms
+=== R24 run 2 ===
+Hash Join  (cost=1080.41..2631.96 rows=81 width=28) (actual time=3.486..3.534 rows=42.00 loops=1)
+  Hash Cond: ((b.name)::text = (a.name)::text)
+  Join Filter: ((b.place_id > a.place_id) AND (abs((b.latitude - a.latitude)) < 0.001) AND (abs((b.longitude - a.longitude)) < 0.001))
+  Rows Removed by Join Filter: 2219
+  Buffers: shared hit=1687
+  ->  Seq Scan on places b  (cost=0.00..1339.63 rows=40563 width=40) (actual time=0.002..0.908 rows=40042.00 loops=1)
+        Buffers: shared hit=934
+  ->  Hash  (cost=1053.26..1053.26 rows=2172 width=40) (actual time=0.769..0.769 rows=2177.00 loops=1)
+        Buckets: 4096  Batches: 1  Memory Usage: 188kB
+        Buffers: shared hit=753
+        ->  Bitmap Heap Scan on places a  (cost=86.68..1053.26 rows=2172 width=40) (actual time=0.109..0.623 rows=2177.00 loops=1)
+              Recheck Cond: ((city_id = 1) AND (category_id = 1))
+              Heap Blocks: exact=735
+              Buffers: shared hit=753
+              ->  Bitmap Index Scan on idx_places_city_cat_closed_rating  (cost=0.00..86.14 rows=2172 width=0) (actual time=0.073..0.073 rows=2207.00 loops=1)
+                    Index Cond: ((city_id = 1) AND (category_id = 1))
+                    Index Searches: 1
+                    Buffers: shared hit=18
+Planning:
+  Buffers: shared hit=472
+Planning Time: 0.344 ms
+Execution Time: 3.553 ms
+=== R24 run 3 ===
+Hash Join  (cost=1080.41..2631.96 rows=81 width=28) (actual time=3.412..3.462 rows=42.00 loops=1)
+  Hash Cond: ((b.name)::text = (a.name)::text)
+  Join Filter: ((b.place_id > a.place_id) AND (abs((b.latitude - a.latitude)) < 0.001) AND (abs((b.longitude - a.longitude)) < 0.001))
+  Rows Removed by Join Filter: 2219
+  Buffers: shared hit=1687
+  ->  Seq Scan on places b  (cost=0.00..1339.63 rows=40563 width=40) (actual time=0.003..0.900 rows=40042.00 loops=1)
+        Buffers: shared hit=934
+  ->  Hash  (cost=1053.26..1053.26 rows=2172 width=40) (actual time=0.774..0.774 rows=2177.00 loops=1)
+        Buckets: 4096  Batches: 1  Memory Usage: 188kB
+        Buffers: shared hit=753
+        ->  Bitmap Heap Scan on places a  (cost=86.68..1053.26 rows=2172 width=40) (actual time=0.109..0.627 rows=2177.00 loops=1)
+              Recheck Cond: ((city_id = 1) AND (category_id = 1))
+              Heap Blocks: exact=735
+              Buffers: shared hit=753
+              ->  Bitmap Index Scan on idx_places_city_cat_closed_rating  (cost=0.00..86.14 rows=2172 width=0) (actual time=0.075..0.075 rows=2207.00 loops=1)
+                    Index Cond: ((city_id = 1) AND (category_id = 1))
+                    Index Searches: 1
+                    Buffers: shared hit=18
+Planning:
+  Buffers: shared hit=472
+Planning Time: 0.355 ms
+Execution Time: 3.482 ms

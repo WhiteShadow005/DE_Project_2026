@@ -1,0 +1,51 @@
+=== R09 run 1 ===
+GroupAggregate  (cost=19.21..22.62 rows=124 width=72) (actual time=0.076..0.092 rows=24.00 loops=1)
+  Group Key: (EXTRACT(hour FROM recorded_at))
+  Buffers: shared hit=6 read=2
+  ->  Sort  (cost=19.21..19.52 rows=124 width=38) (actual time=0.070..0.072 rows=125.00 loops=1)
+        Sort Key: (EXTRACT(hour FROM recorded_at))
+        Sort Method: quicksort  Memory: 28kB
+        Buffers: shared hit=6 read=2
+        ->  Index Only Scan using idx_traffic_seg_speed on traffic_readings  (cost=0.42..14.90 rows=124 width=38) (actual time=0.037..0.050 rows=125.00 loops=1)
+              Index Cond: (segment_id = 5)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=3 read=2
+Planning:
+  Buffers: shared hit=220
+Planning Time: 0.247 ms
+Execution Time: 0.112 ms
+=== R09 run 2 ===
+GroupAggregate  (cost=19.21..22.62 rows=124 width=72) (actual time=0.068..0.084 rows=24.00 loops=1)
+  Group Key: (EXTRACT(hour FROM recorded_at))
+  Buffers: shared hit=8
+  ->  Sort  (cost=19.21..19.52 rows=124 width=38) (actual time=0.060..0.063 rows=125.00 loops=1)
+        Sort Key: (EXTRACT(hour FROM recorded_at))
+        Sort Method: quicksort  Memory: 28kB
+        Buffers: shared hit=8
+        ->  Index Only Scan using idx_traffic_seg_speed on traffic_readings  (cost=0.42..14.90 rows=124 width=38) (actual time=0.028..0.039 rows=125.00 loops=1)
+              Index Cond: (segment_id = 5)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=220
+Planning Time: 0.264 ms
+Execution Time: 0.106 ms
+=== R09 run 3 ===
+GroupAggregate  (cost=19.21..22.62 rows=124 width=72) (actual time=0.060..0.076 rows=24.00 loops=1)
+  Group Key: (EXTRACT(hour FROM recorded_at))
+  Buffers: shared hit=8
+  ->  Sort  (cost=19.21..19.52 rows=124 width=38) (actual time=0.054..0.056 rows=125.00 loops=1)
+        Sort Key: (EXTRACT(hour FROM recorded_at))
+        Sort Method: quicksort  Memory: 28kB
+        Buffers: shared hit=8
+        ->  Index Only Scan using idx_traffic_seg_speed on traffic_readings  (cost=0.42..14.90 rows=124 width=38) (actual time=0.024..0.035 rows=125.00 loops=1)
+              Index Cond: (segment_id = 5)
+              Heap Fetches: 0
+              Index Searches: 1
+              Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=220
+Planning Time: 0.255 ms
+Execution Time: 0.094 ms

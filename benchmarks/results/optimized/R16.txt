@@ -1,0 +1,81 @@
+=== R16 run 1 ===
+Sort  (cost=3215.38..3218.31 rows=1172 width=32) (actual time=6.448..6.464 rows=895.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 70kB
+  Buffers: shared hit=1606 read=1
+  ->  HashAggregate  (cost=3143.91..3155.63 rows=1172 width=32) (actual time=6.355..6.394 rows=895.00 loops=1)
+        Group Key: p.place_id
+        Batches: 1  Memory Usage: 121kB
+        Buffers: shared hit=1603 read=1
+        ->  Hash Join  (cost=91.62..3134.31 rows=1920 width=24) (actual time=0.488..6.213 rows=1986.00 loops=1)
+              Hash Cond: (n.dest_place_id = p.place_id)
+              Buffers: shared hit=1603 read=1
+              ->  Index Scan using idx_nav_started_at on navigation_sessions n  (cost=0.42..2868.61 rows=66468 width=4) (actual time=0.008..3.293 rows=66300.00 loops=1)
+                    Index Cond: (started_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
+                    Index Searches: 1
+                    Buffers: shared hit=1147
+              ->  Hash  (cost=76.55..76.55 rows=1172 width=24) (actual time=0.468..0.469 rows=1167.00 loops=1)
+                    Buckets: 2048  Batches: 1  Memory Usage: 80kB
+                    Buffers: shared hit=456 read=1
+                    ->  Index Only Scan using idx_places_permanently_closed on places p  (cost=0.28..76.55 rows=1172 width=24) (actual time=0.008..0.412 rows=1167.00 loops=1)
+                          Heap Fetches: 803
+                          Index Searches: 1
+                          Buffers: shared hit=456 read=1
+Planning:
+  Buffers: shared hit=391
+Planning Time: 0.434 ms
+Execution Time: 6.511 ms
+=== R16 run 2 ===
+Sort  (cost=3215.38..3218.31 rows=1172 width=32) (actual time=6.063..6.078 rows=895.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 70kB
+  Buffers: shared hit=1582
+  ->  HashAggregate  (cost=3143.91..3155.63 rows=1172 width=32) (actual time=5.978..6.014 rows=895.00 loops=1)
+        Group Key: p.place_id
+        Batches: 1  Memory Usage: 121kB
+        Buffers: shared hit=1579
+        ->  Hash Join  (cost=91.62..3134.31 rows=1920 width=24) (actual time=0.426..5.835 rows=1986.00 loops=1)
+              Hash Cond: (n.dest_place_id = p.place_id)
+              Buffers: shared hit=1579
+              ->  Index Scan using idx_nav_started_at on navigation_sessions n  (cost=0.42..2868.61 rows=66468 width=4) (actual time=0.007..3.172 rows=66300.00 loops=1)
+                    Index Cond: (started_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
+                    Index Searches: 1
+                    Buffers: shared hit=1147
+              ->  Hash  (cost=76.55..76.55 rows=1172 width=24) (actual time=0.408..0.409 rows=1167.00 loops=1)
+                    Buckets: 2048  Batches: 1  Memory Usage: 80kB
+                    Buffers: shared hit=432
+                    ->  Index Only Scan using idx_places_permanently_closed on places p  (cost=0.28..76.55 rows=1172 width=24) (actual time=0.006..0.350 rows=1167.00 loops=1)
+                          Heap Fetches: 786
+                          Index Searches: 1
+                          Buffers: shared hit=432
+Planning:
+  Buffers: shared hit=391
+Planning Time: 0.406 ms
+Execution Time: 6.122 ms
+=== R16 run 3 ===
+Sort  (cost=3215.38..3218.31 rows=1172 width=32) (actual time=6.173..6.188 rows=895.00 loops=1)
+  Sort Key: (count(*)) DESC
+  Sort Method: quicksort  Memory: 70kB
+  Buffers: shared hit=1582
+  ->  HashAggregate  (cost=3143.91..3155.63 rows=1172 width=32) (actual time=6.087..6.124 rows=895.00 loops=1)
+        Group Key: p.place_id
+        Batches: 1  Memory Usage: 121kB
+        Buffers: shared hit=1579
+        ->  Hash Join  (cost=91.62..3134.31 rows=1920 width=24) (actual time=0.431..5.947 rows=1986.00 loops=1)
+              Hash Cond: (n.dest_place_id = p.place_id)
+              Buffers: shared hit=1579
+              ->  Index Scan using idx_nav_started_at on navigation_sessions n  (cost=0.42..2868.61 rows=66468 width=4) (actual time=0.006..3.197 rows=66300.00 loops=1)
+                    Index Cond: (started_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone)
+                    Index Searches: 1
+                    Buffers: shared hit=1147
+              ->  Hash  (cost=76.55..76.55 rows=1172 width=24) (actual time=0.414..0.414 rows=1167.00 loops=1)
+                    Buckets: 2048  Batches: 1  Memory Usage: 80kB
+                    Buffers: shared hit=432
+                    ->  Index Only Scan using idx_places_permanently_closed on places p  (cost=0.28..76.55 rows=1172 width=24) (actual time=0.006..0.354 rows=1167.00 loops=1)
+                          Heap Fetches: 786
+                          Index Searches: 1
+                          Buffers: shared hit=432
+Planning:
+  Buffers: shared hit=391
+Planning Time: 0.392 ms
+Execution Time: 6.230 ms
